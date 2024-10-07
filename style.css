@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+.master_wrapper {
+    /* Initial color variables for light mode */
+    --maincolor: #8355ff;
+    --secondarycolor: #fff;
+    --visiblecolor: #000;
+    --universal_white: #fff;
+    --universal_black: #000;
+
+    /* Other Styles */
+    font-family: poppins;
+    font-weight: 500;
+    height: max-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    box-sizing: border-box;
+    background-color: #f1ecff;
+    padding-bottom: 30px;
+}
+
+#dark_mode_trigger:checked~.master_wrapper {
+    /* Color variables for dark mode */
+    --maincolor: #8355ff;
+    --secondarycolor: #1f2937;
+    --visiblecolor: #ffffff;
+    --universal_white: #fff;
+    --universal_black: #222;
+    background-color: #111827;
+}
+
+#dark_mode_trigger+label {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.bx {
+    display: none !important;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.bx-moon,
+.bx-sun {
+    display: none !important;
+}
+
+#dark_mode_trigger:checked+label .bx-sun {
+    display: block !important;
+    color: #fff;
+}
+
+#dark_mode_trigger:not(:checked)+label .bx-moon {
+    display: block !important;
+    color: #000;
+}
+
+#dark_mode_trigger+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dark_mode_trigger:checked~.master_wrapper .logo {
+    /* To turn the black into white in the logo */
+    filter: invert(1) hue-rotate(180deg);
+}
+
+#dark_mode_trigger:checked~.master_wrapper .description {
+    color: #c1c1c1;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid var(--maincolor);
+    display: flex;
+    padding: 10px;
+    background-color: var(--secondarycolor);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 300px;
+    padding: 7px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: var(--secondarycolor);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--maincolor);
+    box-sizing: border-box;
+}
+
+.title {
+    align-self: flex-start;
+    cursor: default;
+    color: var(--visiblecolor);
+}
+
+.description {
+    color: #3f3f3f;
+    font-size: 15px;
+}
+
+.read-more {
+    background-color: var(--maincolor);
+    border-radius: 30px;
+    border: none;
+    padding: 7px 20px;
+    color: var(--universal_white);
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 10px -10px var(--maincolor);
+}
